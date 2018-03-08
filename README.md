@@ -1,2 +1,3 @@
-# voteR
-Variety of Open Tools for Electoral Research
+# runR
+
+Running data analysis
