@@ -15,8 +15,8 @@ URL: https://www.prognosophie.de
 BugReports: https://www.prognosophie.de/impressum
 LazyData: true
 Imports:
-  dplyr,
-  ggplot2,
+  plyr,
+  tidyverse,
   hrbrthemes,
   leaflet,
   lubridate,
@@ -24,15 +24,13 @@ Imports:
   rgdal,
   sp,
   stringr,
-  tidyr
 RoxygenNote: 6.0.1
 Collate: 
     'create_manual.R'
-    'gles.R'
     'importFrom.R'
     'data_import.R'
-    'weather_data.R'
     'summarize_run.R'
+    'weather_data.R'
     'run_viz.R'
 Suggests: knitr,
     rmarkdown

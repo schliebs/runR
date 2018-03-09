@@ -1,0 +1,23 @@
+navbar:
+  title: runR
+  type: default
+  left:
+  - icon: fa-home fa-lg
+    href: index.html
+  - text: Get Started
+    href: articles/runR.html
+  - text: Reference
+    href: reference/index.html
+  - text: News
+    href: news/index.html
+  right: []
+
+reference:
+- title: All functions
+  desc: ~
+  contents:
+  - '`import_run`'
+  - '`run2map`'
+  - '`run2profile`'
+  - '`summarise_RUN`'
+
