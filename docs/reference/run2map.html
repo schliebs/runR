@@ -63,8 +63,20 @@
      
   </a>
 </li>
-<li>
-  <a href="../articles/runR.html">Get Started</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Get Started
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/vignette2.html">Test</a>
+    </li>
+    <li>
+      <a href="../articles/vignette2.html">Test2</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -75,7 +87,12 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/schliebs/runR">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -94,15 +111,18 @@
     <p>Visualize Run2Map</p>
     
 
-    <pre class="usage"><span class='fu'>run2map</span>(<span class='kw'>run_track</span> <span class='kw'>=</span> <span class='fu'><a href='import_run.html'>import_run</a></span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>"data/2017-11-06.gpx"</span>, <span class='kw'>layer</span> <span class='kw'>=</span>
-  <span class='st'>"tracks"</span>))</pre>
+    <pre class="usage"><span class='fu'>run2map</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cc_skiing</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>run</th>
-      <td><p>a run data frame returned by <code>import_run</code>.</p></td>
+      <th>data</th>
+      <td><p>A run data frame returned by <code>import_run</code>.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Further Options passed into Leaflet's <code>addPolylines</code> function.</p></td>
     </tr>
     </table>
     
@@ -110,14 +130,30 @@
 
     <p>A ggplot object.</p>
     
-    <h2 class="hasAnchor" id="warning"><a class="anchor" href="#warning"></a>Warning</h2>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     
-    <p>Do not operate heavy machinery within 8 hours of using this function.</p>
+    <p>You may customize this plot by either specifying more options within the function or adding other leaflet layers afterwards.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>run</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='import_run.html'>import_run</a></span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>'data/2017-11-06.gpx'</span>,<span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'gpx'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv,     swapAxisOrder = swapAxisOrder, require_geomType = require_geomType): Cannot open data source</span></div><div class='input'><span class='fu'>head</span>(<span class='no'>run</span>)</div><div class='output co'>#&gt; <span class='error'>Error in head(run): object 'run' not found</span></div></pre>
+    <pre class="examples"><div class='input'>data(data = cc_skiing)
+
+run2map(data = cc_skiing)
+
+run2map(data = cc_skiing,
+        color = "red",
+        smoothFactor = 1)
+
+# Add circle at starting point
+run2map(data = cc_skiing) + 
+addCircles(lng = cc_skiing$x[1],
+           lat = lng = cc_skiing$y[1],
+           popup = "START")
+</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:12:22: unexpected '='</span>
+#&gt; <span class='error'>11: addCircles(lng = cc_skiing$x[1],</span>
+#&gt; <span class='error'>12:            lat = lng =</span>
+#&gt; <span class='error'>                         ^</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -126,7 +162,7 @@
       
       <li><a href="#value">Value</a></li>
 
-      <li><a href="#warning">Warning</a></li>
+      <li><a href="#note">Note</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

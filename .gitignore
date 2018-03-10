@@ -25,3 +25,10 @@ vignettes/*.pdf
 *.knit.md
 .Rproj.user
 inst/doc
+
+# Data
+
+data-offline/
+data_offline/
+*/offline/
+offline/

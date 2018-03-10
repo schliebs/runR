@@ -1,18 +1,33 @@
-#' Summarize_Run
+#' SummarizeRun
 #' @description Get summary statistics for run
 #' @param run a run data frame returned by \code{import_run}.
-#' @return A ggplot object.
+#' @return A list with summary statistics.
+#' \describe{
+#'   \item{total_duration}{Total duration as \code{Formal Duration class}}
+#'   \item{total_duration_seconds}{Total duration in seconds}
+#'   \item{total_duration_hours}{Total duration in hours}
+#'   \item{average_speed_kph}{Average speed in kilometers per hour}
+#'   \item{total_distance}{The total distance in kilometers}
+#' }
 #' @examples
-#' run2profile(smooth = 0.5)
-#' @section Warning:
-#' Do not operate heavy machinery within 8 hours of using this function.
+#' data(stuggi_running)
+#' summariseRun(run = stuggi_running)
 #' @export
-summarise_RUN <- function(run = import_run()){
-  total_durance <- (run$time[nrow(run)]-run$time[1]) %>% lubridate::as.duration()
-  total_durance_seconds <- total_durance %>% as.numeric
-  total_durance_hours <- total_durance_seconds/3600
+summariseRun <- function(run = stuggi_running){
   
-  average_speed_kph <- max(run$cumulative.distance)/total_durance_hours
+  total_duration <- (run$time[nrow(run)]-run$time[1]) %>% lubridate::as.duration()
+  total_duration_seconds <- total_duration %>% as.numeric
+  total_duration_hours <- total_duration_seconds/3600
   
-  return(average_speed_kph)
+  average_speed_kph <- max(run$cumulative.distance)/total_duration_hours
+  total_distance <- max(run$cumulative.distance)
+  
+  summarylist <- 
+    list(total_duration = total_duration,
+         total_duration_seconds = total_duration_seconds,
+         total_duration_hours = total_duration_hours,
+         average_speed_kph = average_speed_kph,
+         total_distance = total_distance)
+  
+  return(summarylist)
 }

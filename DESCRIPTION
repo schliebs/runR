@@ -3,7 +3,7 @@ Title: Load,
 Version: 0.0.0.9000
 Authors@R: person("Marcel", "Schliebs", email = "m.schliebs@zeppelin-university.net", role = c("aut", "cre"))
 Description:
-  This package does this and that vfb stuttgart lalala
+  The runR package allows you to import your runs, ski trips, bike rides and other movements and analyze, vizualize and optimize your efforts.
 Depends:
   R (>= 3.4.1),
   ggplot2,
@@ -11,8 +11,8 @@ Depends:
   sp  
 License: MIT
 Encoding: UTF-8
-URL: https://www.prognosophie.de
-BugReports: https://www.prognosophie.de/impressum
+URL: https://www.schliebs.github.io/runR
+BugReports: https://www.github.com/schliebs/runR
 LazyData: true
 Imports:
   plyr,
@@ -23,7 +23,7 @@ Imports:
   magrittr,
   rgdal,
   sp,
-  stringr,
+  stringr
 RoxygenNote: 6.0.1
 Collate: 
     'create_manual.R'
@@ -31,7 +31,9 @@ Collate:
     'data_import.R'
     'summarize_run.R'
     'weather_data.R'
-    'run_viz.R'
+    'elevPlot.R'
+    'runPlot.R'
+    'data.R'
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Import Run — import_run • runR</title>
+<title>run2elev — run2elev • runR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -27,9 +27,9 @@
 <script src="../pkgdown.js"></script>
   
   
-<meta property="og:title" content="Import Run — import_run" />
+<meta property="og:title" content="run2elev — run2elev" />
 
-<meta property="og:description" content="Import Run (Standard: GPX) to Data Frame" />
+<meta property="og:description" content="Visualize a run/hike temporal elevation." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -104,57 +104,63 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Import Run</h1>
+    <h1>run2elev</h1>
     </div>
 
     
-    <p>Import Run (Standard: GPX) to Data Frame</p>
+    <p>Visualize a run/hike temporal elevation.</p>
     
 
-    <pre class="usage"><span class='fu'>import_run</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>"data/2017-11-06.gpx"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"gpx"</span>,
-  <span class='kw'>track_progress</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>run2elev</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>alpine_skiing</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>smooth</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>smoothfactor</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>smoothcolor</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>file</th>
-      <td><p>path and file name.</p></td>
+      <th>data</th>
+      <td><p>A run data frame returned by <code>import_run</code>.</p></td>
     </tr>
     <tr>
-      <th>type</th>
-      <td><p>Type of log-file: currently, only gpx is supported.</p></td>
+      <th>color</th>
+      <td><p>The color to draw the movement line in.</p></td>
     </tr>
     <tr>
-      <th>track_progress</th>
-      <td><p>T/F if data loading progress tracking is wished for</p></td>
+      <th>smooth</th>
+      <td><p>Logical T/F whether to add a smooth function.</p></td>
+    </tr>
+    <tr>
+      <th>smoothfactor</th>
+      <td><p>Loess smoothing factor</p></td>
+    </tr>
+    <tr>
+      <th>smoothcolor</th>
+      <td><p>Color to draw the smoothline in.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame containing basic information about your run.</p><dl class='dl-horizontal'>
-  <dt>pointID</dt><dd><p>ID for each track point</p></dd>
-  <dt>ele</dt><dd><p>elevation above sealevel in meters</p></dd>
-  <dt>time</dt><dd><p>time (in POSIXct-format)</p></dd>
-  <dt>distance</dt><dd><p>distance since the last trackpoint</p></dd>
-  <dt>cumulative.distance</dt><dd><p>cumulative distance since the beginnning</p></dd>
-  <dt>x</dt><dd><p>x-coordinate (longitude (East-West-Dimension))</p></dd>
-  <dt>y</dt><dd><p>y-coordinate (longitude (North-South-Dimension))</p></dd>
-</dl>
+    <p>A ggplot object.</p>
+    
+    <h2 class="hasAnchor" id="integration-into-ggplot-"><a class="anchor" href="#integration-into-ggplot-"></a>Integration into ggplot2</h2>
 
     
-    <h2 class="hasAnchor" id="remark"><a class="anchor" href="#remark"></a>Remark</h2>
-
-    
-    <p>So far, only the gpx-format from Sportstracker is implemented.</p>
+    <p>You can simply add to a plot created by <code>run2elev</code> by using the usual <code>ggplot2</code>-syntax.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='no'>run</span> <span class='kw'>&lt;-</span> <span class='fu'>import_run</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>'data/2017-11-06.gpx'</span>,<span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'gpx'</span>)
-<span class='fu'>head</span>(<span class='no'>run</span>)
-<span class='co'># }</span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>data</span>(<span class='st'>"alpine_skiing"</span>)
+
+<span class='fu'>run2elev</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>alpine_skiing</span>)</div><div class='img'><img src='run2elev-1.png' alt='' width='700' height='432.632880098887' /></div><div class='input'>
+<span class='fu'>run2elev</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>alpine_skiing</span>,
+         <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
+         <span class='kw'>smooth</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+         <span class='kw'>smoothfactor</span> <span class='kw'>=</span> <span class='fl'>0.3</span>,
+         <span class='kw'>smoothcolor</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><div class='img'><img src='run2elev-2.png' alt='' width='700' height='432.632880098887' /></div><div class='input'>
+<span class='fu'>run2elev</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>alpine_skiing</span>) +
+<span class='fu'>geom_hline</span>(<span class='kw'>yintercept</span> <span class='kw'>=</span> <span class='fu'>mean</span>(<span class='no'>alpine_skiing</span>$<span class='no'>ele</span>,<span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>),
+           <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"green"</span>)</div><div class='img'><img src='run2elev-3.png' alt='' width='700' height='432.632880098887' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -163,7 +169,7 @@
       
       <li><a href="#value">Value</a></li>
 
-      <li><a href="#remark">Remark</a></li>
+      <li><a href="#integration-into-ggplot-">Integration into ggplot2</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

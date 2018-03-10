@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Import Run — import_run • runR</title>
+<title>Import log-file folder — import_logfolder • runR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -27,9 +27,9 @@
 <script src="../pkgdown.js"></script>
   
   
-<meta property="og:title" content="Import Run — import_run" />
+<meta property="og:title" content="Import log-file folder — import_logfolder" />
 
-<meta property="og:description" content="Import Run (Standard: GPX) to Data Frame" />
+<meta property="og:description" content="Import a folder of log files to a list." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -104,26 +104,25 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Import Run</h1>
+    <h1>Import log-file folder</h1>
     </div>
 
     
-    <p>Import Run (Standard: GPX) to Data Frame</p>
+    <p>Import a folder of log files to a list.</p>
     
 
-    <pre class="usage"><span class='fu'>import_run</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>"data/2017-11-06.gpx"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"gpx"</span>,
-  <span class='kw'>track_progress</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>import_logfolder</span>(<span class='kw'>folderpath</span> <span class='kw'>=</span> <span class='st'>"data"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"gpx"</span>, <span class='kw'>track_progress</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>file</th>
-      <td><p>path and file name.</p></td>
+      <th>folderpath</th>
+      <td><p>path of the folder containing the files.</p></td>
     </tr>
     <tr>
       <th>type</th>
-      <td><p>Type of log-file: currently, only gpx is supported.</p></td>
+      <td><p>Type of log-files: currently, only gpx is supported.</p></td>
     </tr>
     <tr>
       <th>track_progress</th>
@@ -133,7 +132,7 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame containing basic information about your run.</p><dl class='dl-horizontal'>
+    <p>A list containing a data frame for each logfile. Each such data frame contains:</p><dl class='dl-horizontal'>
   <dt>pointID</dt><dd><p>ID for each track point</p></dd>
   <dt>ele</dt><dd><p>elevation above sealevel in meters</p></dd>
   <dt>time</dt><dd><p>time (in POSIXct-format)</p></dd>
@@ -152,8 +151,8 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='no'>run</span> <span class='kw'>&lt;-</span> <span class='fu'>import_run</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>'data/2017-11-06.gpx'</span>,<span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'gpx'</span>)
-<span class='fu'>head</span>(<span class='no'>run</span>)
+<span class='no'>runlist</span> <span class='kw'>&lt;-</span> <span class='fu'>import_logfolder</span>(<span class='kw'>folderpath</span> <span class='kw'>=</span> <span class='st'>'data'</span>,<span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'gpx'</span>)
+<span class='fu'>head</span>(<span class='no'>test</span><span class='kw'>[[</span><span class='fl'>1</span>]])
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

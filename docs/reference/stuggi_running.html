@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Import Run — import_run • runR</title>
+<title>Example 10k run — stuggi_running • runR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -27,9 +27,9 @@
 <script src="../pkgdown.js"></script>
   
   
-<meta property="og:title" content="Import Run — import_run" />
+<meta property="og:title" content="Example 10k run — stuggi_running" />
 
-<meta property="og:description" content="Import Run (Standard: GPX) to Data Frame" />
+<meta property="og:description" content="A 10k run I did in my home town Stuttgart, Germany." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -104,36 +104,18 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Import Run</h1>
+    <h1>Example 10k run</h1>
     </div>
 
     
-    <p>Import Run (Standard: GPX) to Data Frame</p>
+    <p>A 10k run I did in my home town Stuttgart, Germany.</p>
     
 
-    <pre class="usage"><span class='fu'>import_run</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>"data/2017-11-06.gpx"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"gpx"</span>,
-  <span class='kw'>track_progress</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>file</th>
-      <td><p>path and file name.</p></td>
-    </tr>
-    <tr>
-      <th>type</th>
-      <td><p>Type of log-file: currently, only gpx is supported.</p></td>
-    </tr>
-    <tr>
-      <th>track_progress</th>
-      <td><p>T/F if data loading progress tracking is wished for</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <pre class="usage"><span class='no'>stuggi_running</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame containing basic information about your run.</p><dl class='dl-horizontal'>
+    <p>A data frame with 1060 rows and 7 variables:</p><dl class='dl-horizontal'>
   <dt>pointID</dt><dd><p>ID for each track point</p></dd>
   <dt>ele</dt><dd><p>elevation above sealevel in meters</p></dd>
   <dt>time</dt><dd><p>time (in POSIXct-format)</p></dd>
@@ -142,31 +124,15 @@
   <dt>x</dt><dd><p>x-coordinate (longitude (East-West-Dimension))</p></dd>
   <dt>y</dt><dd><p>y-coordinate (longitude (North-South-Dimension))</p></dd>
 </dl>
-
-    
-    <h2 class="hasAnchor" id="remark"><a class="anchor" href="#remark"></a>Remark</h2>
-
-    
-    <p>So far, only the gpx-format from Sportstracker is implemented.</p>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='no'>run</span> <span class='kw'>&lt;-</span> <span class='fu'>import_run</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>'data/2017-11-06.gpx'</span>,<span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'gpx'</span>)
-<span class='fu'>head</span>(<span class='no'>run</span>)
-<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#remark">Remark</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+      <li><a href="#format">Format</a></li>
+          </ul>
 
   </div>
 </div>
