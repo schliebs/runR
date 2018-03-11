@@ -20,6 +20,7 @@ A data frame containing basic information about your run.
   \item{pointID}{ID for each track point}
   \item{ele}{elevation above sealevel in meters}
   \item{time}{time (in POSIXct-format)}
+  \item{runtime}{time since start (in seconds)}
   \item{distance}{distance since the last trackpoint}
   \item{cumulative.distance}{cumulative distance since the beginnning}
   \item{x}{x-coordinate (longitude (East-West-Dimension))}

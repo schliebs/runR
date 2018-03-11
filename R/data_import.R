@@ -10,6 +10,7 @@
 #'   \item{pointID}{ID for each track point}
 #'   \item{ele}{elevation above sealevel in meters}
 #'   \item{time}{time (in POSIXct-format)}
+#'   \item{runtime}{time since start (in seconds)}
 #'   \item{distance}{distance since the last trackpoint}
 #'   \item{cumulative.distance}{cumulative distance since the beginnning}
 #'   \item{x}{x-coordinate (longitude (East-West-Dimension))}
@@ -35,7 +36,8 @@ import_run <- function(file = 'data/2017-11-06.gpx',
   wp <- rgdal::readOGR(file, layer = layer,verbose = track_progress)
   wp$distance <- c(0,sp::spDists(wp, segments=TRUE))
   wp$cumulative.distance <- cumsum(wp$distance)
-  wp$time <- lubridate::ymd_hms(wp$time)   
+  wp$time <- lubridate::ymd_hms(wp$time)
+  wp$runtime <- as.numeric(wp$time - wp$time[1])
   
   # Data Management
   wp %<>%  
@@ -43,6 +45,7 @@ import_run <- function(file = 'data/2017-11-06.gpx',
     select(pointID = track_seg_point_id,
            ele,
            time,
+           runtime,
            distance,
            cumulative.distance,
            x = coords.x1,

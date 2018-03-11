@@ -12,7 +12,7 @@ run2map(data = cc_skiing, ...)
 \item{...}{Further Options passed into Leaflet's \code{addPolylines} function.}
 }
 \value{
-A ggplot object.
+A leaflet object.
 }
 \description{
 Visualize Run2Map

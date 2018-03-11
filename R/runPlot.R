@@ -2,7 +2,7 @@
 #' @description Visualize Run2Map
 #' @param data A run data frame returned by \code{import_run}.
 #' @param ... Further Options passed into Leaflet's \code{addPolylines} function.
-#' @return A ggplot object.
+#' @return A leaflet object.
 #' @examples
 #' data(data = cc_skiing)
 #' 
