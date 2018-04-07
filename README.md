@@ -3,7 +3,7 @@
 runR
 ====
 
-The goal of runR is to ...
+tatata lalala
 
 Installation
 ------------

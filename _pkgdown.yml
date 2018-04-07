@@ -8,7 +8,7 @@ navbar:
     href: articles/runR.html
     menu:
     - text: Test
-      href: articles/vignette2.html
+      href: articles/runR.html
     - text: Test2
       href: articles/vignette2.html
   - text: Reference
