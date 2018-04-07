@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Example 15k cross country skiing — cc_skiing • runR</title>
+<title>Run2MovingMap — Run2MovingMap • runR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -27,9 +27,9 @@
 <script src="../pkgdown.js"></script>
   
   
-<meta property="og:title" content="Example 15k cross country skiing — cc_skiing" />
+<meta property="og:title" content="Run2MovingMap — Run2MovingMap" />
 
-<meta property="og:description" content="A 15k cross country skiing session in St. Moritz, Switzerland" />
+<meta property="og:description" content="Visualize Run2MovingMap" />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -104,36 +104,55 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Example 15k cross country skiing</h1>
+    <h1>Run2MovingMap</h1>
     </div>
 
     
-    <p>A 15k cross country skiing session in St. Moritz, Switzerland</p>
+    <p>Visualize Run2MovingMap</p>
     
 
-    <pre class="usage"><span class='no'>cc_skiing</span></pre>
-        
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <pre class="usage"><span class='fu'>Run2MovingMap</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>stuggi_running</span>, <span class='no'>...</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>A run data frame returned by <code>import_run</code>.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Further Options passed into Leaflet's <code>addPolylines</code> function.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame with 1559 rows and 8 variables:</p><dl class='dl-horizontal'>
-  <dt>pointID</dt><dd><p>ID for each track point</p></dd>
-  <dt>ele</dt><dd><p>elevation above sealevel in meters</p></dd>
-  <dt>time</dt><dd><p>time (in POSIXct-format)</p></dd>
-  <dt>runtime</dt><dd><p>time since start (in seconds)</p></dd>
-  <dt>distance</dt><dd><p>distance since the last trackpoint</p></dd>
-  <dt>cumulative.distance</dt><dd><p>cumulative distance since the beginnning</p></dd>
-  <dt>x</dt><dd><p>x-coordinate (longitude (East-West-Dimension))</p></dd>
-  <dt>y</dt><dd><p>y-coordinate (longitude (North-South-Dimension))</p></dd>
-</dl>
+    <p>A ggplot object.</p>
+    
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    
+    <p>Creating this animated plot takes rather long.</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='fu'>data</span>(<span class='st'>"stuggi_running"</span>)
+<span class='fu'>head</span>(<span class='no'>run</span>)
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#format">Format</a></li>
-          </ul>
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#note">Note</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

@@ -38,3 +38,4 @@ Collate:
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
+SystemRequirements: GNU make

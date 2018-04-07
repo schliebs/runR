@@ -19,11 +19,12 @@ Visualize Run2MovingMap
 }
 \section{Note}{
 
-You may customize this plot by either specifying more options within the function or adding other leaflet layers afterwards.
+Creating this animated plot takes rather long.
 }
 
 \examples{
-data(data = stuggi_running)
-
-run2map(data = stuggi_running)
+\dontrun{
+data("stuggi_running")
+head(run)
+}
 }

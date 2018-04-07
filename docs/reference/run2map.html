@@ -128,7 +128,7 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A ggplot object.</p>
+    <p>A leaflet object.</p>
     
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
@@ -137,23 +137,17 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>data(data = cc_skiing)
+    <pre class="examples"><div class='input'><span class='fu'>data</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cc_skiing</span>)
 
-run2map(data = cc_skiing)
-
-run2map(data = cc_skiing,
-        color = "red",
-        smoothFactor = 1)
-
-# Add circle at starting point
-run2map(data = cc_skiing) + 
-addCircles(lng = cc_skiing$x[1],
-           lat = lng = cc_skiing$y[1],
-           popup = "START")
-</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:12:22: unexpected '='</span>
-#&gt; <span class='error'>11: addCircles(lng = cc_skiing$x[1],</span>
-#&gt; <span class='error'>12:            lat = lng =</span>
-#&gt; <span class='error'>                         ^</span></div></pre>
+<span class='fu'>run2map</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cc_skiing</span>)</div><div class='output co'>#&gt; <span class='error'>Error in select(., x, y): could not find function "select"</span></div><div class='input'>
+<span class='fu'>run2map</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cc_skiing</span>,
+        <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
+        <span class='kw'>smoothFactor</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='error'>Error in select(., x, y): could not find function "select"</span></div><div class='input'>
+<span class='co'># Add circle at starting point</span>
+<span class='fu'>run2map</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cc_skiing</span>) +
+<span class='fu'>addCircles</span>(<span class='kw'>lng</span> <span class='kw'>=</span> <span class='no'>cc_skiing</span>$<span class='no'>x</span>[<span class='fl'>1</span>],
+           <span class='kw'>lat</span> <span class='kw'>=</span> <span class='no'>cc_skiing</span>$<span class='no'>y</span>[<span class='fl'>1</span>],
+           <span class='kw'>popup</span> <span class='kw'>=</span> <span class='st'>"START"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in select(., x, y): could not find function "select"</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

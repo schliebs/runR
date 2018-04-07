@@ -5,5 +5,7 @@ articles:
   runR.html: runR.html
   runR.R: runR.R
   runR: runR.html
+  vignette2.html: vignette2.html
+  vignette2.R: vignette2.R
   vignette2: vignette2.html
 
