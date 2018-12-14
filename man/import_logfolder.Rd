@@ -4,7 +4,8 @@
 \alias{import_logfolder}
 \title{Import log-file folder}
 \usage{
-import_logfolder(folderpath = "data", type = "gpx", track_progress = TRUE)
+import_logfolder(folderpath = "data", type = "gpx",
+  track_progress = TRUE)
 }
 \arguments{
 \item{folderpath}{path of the folder containing the files.}

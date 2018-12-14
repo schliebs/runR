@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 
 # runR
 
-tatata lalala 
+*runR* contains a set of graphical and analytical functions for parsing, plotting and analyzing data from runs, ski trips, hiking, and other possible applications. The provided functions include height-distance profiles and dynamic movement plotting. runR is still under development.
 
 ## Installation
 

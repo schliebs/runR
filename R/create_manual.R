@@ -3,7 +3,7 @@
 devtools::document()
 devtools::build()
 
-pack <- "runR"
+pack <- "package_template"
 path <- "C:/Users/Schliebs/OneDrive/github/runR" #getwd()#find.package(pack)#
 
 file.remove("C:/Users/Schliebs/OneDrive/github/runR/runR.pdf")
